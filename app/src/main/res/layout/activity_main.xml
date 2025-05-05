@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PIZZA APP"
+            android:textSize="20sp" />
+
+        <!-- Pizza Label -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Pizza"
+            android:textSize="15sp" />
+
+        <!-- Pizza Type Radio Group -->
+        <RadioGroup
+            android:id="@+id/rgbPizza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbHawaiian"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:text="Hawaian" />
+
+            <RadioButton
+                android:id="@+id/rbHamCheese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ham and Cheese" />
+        </RadioGroup>
+
+        <!-- Size Label -->
+        <TextView
+            android:id="@+id/txtSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Size" />
+
+        <!-- Size Radio Group -->
+        <RadioGroup
+            android:id="@+id/rbgSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbSmall"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:text="Small" />
+
+            <RadioButton
+                android:id="@+id/rbMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medium" />
+
+            <RadioButton
+                android:id="@+id/rbLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large" />
+        </RadioGroup>
+
+        <!-- Crust Label -->
+        <TextView
+            android:id="@+id/txtCrustType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Crust Type" />
+
+        <!-- Crust Radio Group -->
+        <RadioGroup
+            android:id="@+id/rgbCrustType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbThin"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:text="Thin" />
+
+            <RadioButton
+                android:id="@+id/rbThick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thick" />
+        </RadioGroup>
+
+
+        <!-- Toppings Label -->
+        <TextView
+            android:id="@+id/txtToppings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Extra Toppings" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+            <!-- Toppings Checkboxes -->
+            <CheckBox
+                android:id="@+id/chbExtraCheese"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:text="Extra Cheese" />
+
+            <CheckBox
+                android:id="@+id/chbMushrooms"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:text="Mushrooms" />
+
+            <CheckBox
+                android:id="@+id/chbOnions"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Onions" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/chbTomatoes"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:text="Tomatoes" />
+
+            <CheckBox
+                android:id="@+id/chbPineApple"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:text="Pineapple" />
+
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnProcessOrder"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="Process Order" />
+
+            <Button
+                android:id="@+id/btnNewOrder"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="New Order" />
+        </LinearLayout>
+
+        <!-- Order Summary -->
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Your Order is" />
+
+        <TextView
+            android:id="@+id/pizza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ordered Pizza" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtSAC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size and Crust:" />
+
+            <TextView
+                android:id="@+id/txtSizeAndCrust"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:text="Display Order Size and Crust" />
+
+            <TextView
+                android:id="@+id/txtSizeAndCrustPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Size and Crust price" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtExt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Extra Toppings:" />
+
+            <TextView
+                android:id="@+id/txtExtraToppings"
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:text="ordered Toppings" />
+
+            <TextView
+                android:id="@+id/txtExtraTopPrice"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:text="ExtraTopPrice" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL:" />
+
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="totalPrice" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
