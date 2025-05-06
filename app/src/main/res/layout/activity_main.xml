@@ -46,6 +46,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ham and Cheese" />
+
+            <RadioGroup android:id="@+id/size_group">
+                <RadioButton android:id="@+id/rbSmall" android:text="Small" />
+                <RadioButton android:id="@+id/rbMedium" android:text="Medium" />
+                <RadioButton android:id="@+id/rbLarge" android:text="Large" />
+            </RadioGroup>
+
+            <RadioGroup android:id="@+id/crust_group">
+                <RadioButton android:id="@+id/rbThin" android:text="Thin Crust" />
+                <RadioButton android:id="@+id/rbThick" android:text="Thick Crust" />
+
         </RadioGroup>
 
         <!-- Size Label -->
