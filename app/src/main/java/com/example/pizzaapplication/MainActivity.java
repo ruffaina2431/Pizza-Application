@@ -1,8 +1,9 @@
 package com.example.pizzaapplication;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,42 +14,58 @@ public class MainActivity extends AppCompatActivity {
 
     RadioButton rbHawaiian, rbHamCheese;
     Button btnProcessOrder;
-
+    CheckBox chbExtraCheese, chbMushrooms, chbOnions, chbTomatoes, chbPineApple;
     TextView pizzaText;
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // Link Layout components to variables
-        // repeat this pattern for RadioGroups for Size and Crust, CheckBoxes for toppings,TextView for order summary
-        // To be used on validation and displaying the result.
-
         pizzaText = findViewById(R.id.pizza);
         rbHawaiian = findViewById(R.id.rbHawaiian);
         rbHamCheese = findViewById(R.id.rbHamCheese);
         btnProcessOrder = findViewById(R.id.btnProcessOrder);
+        chbExtraCheese = findViewById(R.id.chbExtraCheese);
+        chbMushrooms = findViewById(R.id.chbMushrooms);
+        chbOnions = findViewById(R.id.chbOnions);
+        chbTomatoes = findViewById(R.id.chbTomatoes);
+        chbPineApple = findViewById(R.id.chbPineApple);
 
-        btnProcessOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (rbHawaiian.isChecked()) {
-                    //---------------Continue Code Here---------------
-                    pizzaText.setText("Your pizza is Hawaiian");
+        btnProcessOrder.setOnClickListener(v -> {
+            int toppingPrice = 0;
+            String toppingSummary = "Extra Toppings:\n";
+            String pizzaType;
 
-
-                } else if (rbHamCheese.isChecked()) {
-                    //---------------Continue Code Here---------------
-                    pizzaText.setText("Your pizza is Ham and Cheese");
-
-
-                }else{
-
-                    Toast.makeText(MainActivity.this, "Please Select Pizza Type to Proceed with Your Order!", Toast.LENGTH_SHORT).show();
-                }
+            // Check pizza type
+            if (rbHawaiian.isChecked()) {
+                pizzaType = "Your pizza is Hawaiian";
+            } else if (rbHamCheese.isChecked()) {
+                pizzaType = "Your pizza is Ham and Cheese";
+            } else {
+                Toast.makeText(MainActivity.this, "Please Select Pizza Type to Proceed with Your Order!", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            // Validate combinations
+            if (chbTomatoes.isChecked() && chbOnions.isChecked()) {
+                toppingPrice += 10;
+                toppingSummary += "- Tomatoes & Onions (₱10)\n";
+            } else if (chbPineApple.isChecked()) {
+                toppingPrice += 15;
+                toppingSummary += "- Pineapple (₱15)\n";
+            } else if (chbExtraCheese.isChecked() && chbMushrooms.isChecked()) {
+                toppingPrice += 20;
+                toppingSummary += "- Extra Cheese & Mushrooms (₱20)\n";
+            } else {
+                toppingSummary += "- No valid topping combination selected.\n";
+            }
+
+            // Final output
+            String result = pizzaType + "\n" + toppingSummary + "Total Topping Price: ₱" + toppingPrice;
+            pizzaText.setText(result);
         });
-
     }
-
 }
