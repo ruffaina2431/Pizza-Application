@@ -139,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
                 totalCrustAndSizePrice = sizePrice + crustPrice;
                 double totalSum=0.0;
-                pizzaText.setText(pizzaType);
                 txtSizeAndCrust.setText(size + " And " + crust);
                 txtSizeAndCrustPrice.setText("="+(String.valueOf(totalCrustAndSizePrice)));
                 txtExtraToppings.setText(toppingSummary);
@@ -188,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 chbOnions.setChecked(false);
                 chbTomatoes.setChecked(false);
                 chbPineApple.setChecked(false);
+                chbPwdSen.setChecked(false);
 
                 // Clear TextViews
                 pizzaText.setText("");
