@@ -12,43 +12,85 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     RadioButton rbHawaiian, rbHamCheese;
+    RadioButton rbSmall, rbMedium, rbLarge;
     Button btnProcessOrder;
 
     TextView pizzaText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Link Layout components to variables
-        // repeat this pattern for RadioGroups for Size and Crust, CheckBoxes for toppings,TextView for order summary
-        // To be used on validation and displaying the result.
-
+        // Link UI components
         pizzaText = findViewById(R.id.pizza);
         rbHawaiian = findViewById(R.id.rbHawaiian);
         rbHamCheese = findViewById(R.id.rbHamCheese);
+
+        rbSmall = findViewById(R.id.rbSmall);
+        rbMedium = findViewById(R.id.rbMedium);
+        rbLarge = findViewById(R.id.rbLarge);
+
         btnProcessOrder = findViewById(R.id.btnProcessOrder);
 
         btnProcessOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rbHawaiian.isChecked()) {
-                    //---------------Continue Code Here---------------
-                    pizzaText.setText("Your pizza is Hawaiian");
+                // Pizza type selection check
+                boolean isHawaiian = rbHawaiian.isChecked();
+                boolean isHamCheese = rbHamCheese.isChecked();
 
+                // Size selection check
+                boolean isSmall = rbSmall.isChecked();
+                boolean isMedium = rbMedium.isChecked();
+                boolean isLarge = rbLarge.isChecked();
 
-                } else if (rbHamCheese.isChecked()) {
-                    //---------------Continue Code Here---------------
-                    pizzaText.setText("Your pizza is Ham and Cheese");
-
-
-                }else{
-
-                    Toast.makeText(MainActivity.this, "Please Select Pizza Type to Proceed with Your Order!", Toast.LENGTH_SHORT).show();
+                // Validate pizza type
+                if (!isHawaiian && !isHamCheese) {
+                    Toast.makeText(MainActivity.this, "Please select a pizza type!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
+
+                // Validate size
+                if (!isSmall && !isMedium && !isLarge) {
+                    Toast.makeText(MainActivity.this, "Please select a size!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int price = 0;
+                String pizzaType = "";
+                String size = "";
+
+                // Calculate price based on selection
+                if (isHawaiian) {
+                    pizzaType = "Hawaiian";
+                    if (isSmall) {
+                        price = 100;
+                        size = "Small";
+                    } else if (isMedium) {
+                        price = 150;
+                        size = "Medium";
+                    } else if (isLarge) {
+                        price = 200;
+                        size = "Large";
+                    }
+                } else if (isHamCheese) {
+                    pizzaType = "Ham and Cheese";
+                    if (isSmall) {
+                        price = 200;
+                        size = "Small";
+                    } else if (isMedium) {
+                        price = 300;
+                        size = "Medium";
+                    } else if (isLarge) {
+                        price = 400;
+                        size = "Large";
+                    }
+                }
+
+                // Display the result
+                pizzaText.setText("You ordered a " + size + " " + pizzaType + " pizza.\nPrice: " + price + " PHP");
             }
         });
-
     }
-
 }
